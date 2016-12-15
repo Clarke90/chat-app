@@ -1,16 +1,21 @@
 <?php
 if(isset($_POST['name']) && isset($_POST['message'])) {
-    $data = $_POST['name'] . '-' . $_POST['message'] . "\n";
-    $ret = file_put_contents('mydata.txt', $data, FILE_APPEND | LOCK_EX);
-    if($ret === false) {
-        die('There was an error writing this file');
-    }
-    else {
-        echo "its been written to file";
-    }
+	$name = $_POST['name'];
+	$message = $_POST['message'];
+
+	$file = "data.json";
+	$json = json_decode(file_get_contents($file), true);
+	$json = array("name" => $name, "message" => $message);
+	$write = file_put_contents($file, json_encode($json), FILE_APPEND);
+
+	if($write === false) {
+		die('There was an error writing to this file');
+	}
+	else {
+		echo "File successfully written";
+	}
 }
 else {
-   die('no post data to process');
+	die('Invalid data');
 }
-
 ?>

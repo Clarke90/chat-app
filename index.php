@@ -14,14 +14,14 @@
 <body>
 	<!-- Content wrapper for pushing footer -->
 	<div class="wrapper">
+		<form method="POST">
+			<input id="name" name="name" type="text" placeholder="Username"/><br>
+			<textarea id="message" name="field2" type="text" rows="8" cols="40"></textarea><br>
 
-
-		<form method="POST" id="form">
-		    <input id="field1" name="field1" type="text" placeholder="user Name"/><br>
-				<textarea id="field2" name="field2" type="text" rows="8" cols="40"></textarea><br>
-		    <!-- <input name="field2" type="text" /><br> -->
-		    <input type="submit" name="submit" value="Save Data"><br>
+			<input type="submit" name="submit" value="Save Data"><br>
 		</form>
+
+		<div class="push"></div>
 	</div>
 
 
@@ -35,38 +35,33 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- <script src="scripts/custom.js"></script> -->
 
-
 	<script type="text/javascript">
 		$(document).ready(function() {
-		    $(document).on('submit', '#form', function() {
-		        var field1 = $("#field1").val();
-						  var field2 = $("#field2").val();
-		        $.ajax({
-		            type: 'post',
-		            url: 'myprocessingscript.php',
-		            data: {
-		                name: field1,
-										message: field2
-		            },
-		            success: function() {
+			$(document).on('submit', 'form', function() {
+				// Save form data
+				var name = $("#name").val()
+				var message = $("#message").val()
 
-									console.log('sucessfully written to file');
-									$("#field2").val('');
-
-		            }
-		        });
-
-		        return false;
-		    });
-		});
-
+				// Post data to php script
+				$.ajax({
+					type: 'post',
+					url: 'myprocessingscript.php',
+					data: {
+						name: name,
+						message: message
+					},
+					success: function() {
+						console.log('Written to file')
+					}
+				})
+				return false;
+			})
+		})
 	</script>
+
 	<!--
 	Project refrences
-
 	http://stackoverflow.com/questions/19381111/how-to-encode-json-in-php-via-jquery-ajax-post-data
 	-->
-	<script>
-	</script>
 </body>
 </html>
