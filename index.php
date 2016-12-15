@@ -16,8 +16,7 @@
 	<div class="wrapper">
 		<form method="POST">
 			<input id="name" name="name" type="text" placeholder="Username"/><br>
-			<textarea id="message" name="field2" type="text" rows="8" cols="40"></textarea><br>
-
+			<textarea id="message" name="message" type="text" rows="8" cols="40"></textarea><br>
 			<input type="submit" name="submit" value="Save Data"><br>
 		</form>
 
@@ -33,32 +32,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- <script src="scripts/custom.js"></script> -->
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(document).on('submit', 'form', function() {
-				// Save form data
-				var name = $("#name").val()
-				var message = $("#message").val()
-
-				// Post data to php script
-				$.ajax({
-					type: 'post',
-					url: 'myprocessingscript.php',
-					data: {
-						name: name,
-						message: message
-					},
-					success: function() {
-						console.log('Written to file')
-					}
-				})
-				return false;
-			})
-		})
-	</script>
-
+	<script src="scripts/custom.js"></script>
 	<!--
 	Project refrences
 	http://stackoverflow.com/questions/19381111/how-to-encode-json-in-php-via-jquery-ajax-post-data
