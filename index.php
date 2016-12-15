@@ -16,10 +16,11 @@
 	<div class="wrapper">
 
 
-		<form action="myprocessingscript.php" method="POST">
-		    <input name="field1" type="text" />
-		    <input name="field2" type="text" />
-		    <input type="submit" name="submit" value="Save Data">
+		<form method="POST" id="form">
+		    <input id="field1" name="field1" type="text" placeholder="user Name"/><br>
+				<textarea id="field2" name="field2" type="text" rows="8" cols="40"></textarea><br>
+		    <!-- <input name="field2" type="text" /><br> -->
+		    <input type="submit" name="submit" value="Save Data"><br>
 		</form>
 	</div>
 
@@ -32,8 +33,34 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="scripts/custom.js"></script>
+	<!-- <script src="scripts/custom.js"></script> -->
 
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $(document).on('submit', '#form', function() {
+		        var field1 = $("#field1").val();
+						  var field2 = $("#field2").val();
+		        $.ajax({
+		            type: 'post',
+		            url: 'myprocessingscript.php',
+		            data: {
+		                name: field1,
+										message: field2
+		            },
+		            success: function() {
+
+									console.log('sucessfully written to file');
+									$("#field2").val('');
+
+		            }
+		        });
+
+		        return false;
+		    });
+		});
+
+	</script>
 	<!--
 	Project refrences
 
