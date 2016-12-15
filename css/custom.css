@@ -1,0 +1,114 @@
+/*
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+
+Must replace any vertical/y-axis margin with padding
+*/
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	min-height: 100%;
+	height: 100%;
+	/* the bottom margin is the negative value of the footer's height */
+	margin: 0 0 -50px !important;
+}
+
+.sticky-footer, .push {
+	/* .push must be the same height as footer */
+	height: 50px;
+}
+/*End sticky footer*/
+
+/*
+Global classes
+*/
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-row.x-center {
+	justify-content: center;
+}
+
+.flex-row.y-center {
+	align-items: center;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-col.x-center {
+	align-items: center;
+}
+
+.flex-col.y-center {
+	justify-content: center;
+}
+
+.form-group {
+	padding: 1.5rem 0;
+}
+/*
+End global classes
+*/
+header {
+	padding: 1.5rem 0 2rem 0;
+	box-sizing: border-box;
+}
+
+main {
+	width: 100%;
+	display: flex;
+	flex: 1 1 auto;
+	overflow: hidden;
+}
+
+div#chatroom {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
+div#chat {
+	height: 60%;
+	border: 1px solid black;
+}
+
+div#chatroom>div {
+	width: 100%;
+	height: 40%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 5%;
+	box-sizing: border-box;
+}
+
+input#name {
+	max-width: 350px;
+}
+
+textarea#msg {
+	height: 100%;
+}
+
+input#name, textarea#msg {
+
+}
+
+button {
+
+}
