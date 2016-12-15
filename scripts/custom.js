@@ -1,35 +1,42 @@
 $(document).ready(function() {
-	// Reload page on data update
-	var previous = JSON.stringify($.getJSON("data.json"));
-
+	// Reload page periodically
 	setInterval(function() {
-			current = JSON.stringify($.getJSON("data.json"))
-
-			if (previous !== current) {
-				console.log('JSON modified')
-			} else {
-				console.log("No JSON change")
-			}
+		checkJSON()
 	}, 2000)
 
 	// On form submit send data to write.php for writing to server JSON file
 	$(document).on('submit', 'form', function() {
-		// Save form data
-		var name = $("#name").val()
-		var message = $("#message").val()
-
-		// Post data to php script
-		$.ajax({
-			type: 'post',
-			url: 'write.php',
-			data: {
-				name: name,
-				message: message
-			},
-			success: function() {
-				console.log('Written to file')
-			}
-		})
+		postData()
 		return false
 	})
 })
+
+function checkJSON() {
+	// Get data from json file
+	var data = $.ajax({ type: "GET",
+		url: "data.json",
+		async: false
+	}).responseText
+
+	var obj = JSON.parse(data)
+	console.log(obj)
+}
+
+function postData() {
+	// Save form data
+	var name = $("#name").val()
+	var message = $("#message").val()
+
+	// Post data to php script
+	$.ajax({
+		type: 'post',
+		url: 'write.php',
+		data: {
+			name: name,
+			message: message
+		},
+		success: function() {
+			console.log('Written to file')
+		}
+	})
+}

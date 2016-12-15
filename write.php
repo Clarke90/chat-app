@@ -5,13 +5,21 @@ if(isset($_POST['name']) && isset($_POST['message'])) {
 	$name = $_POST['name'];
 	$message = $_POST['message'];
 
-	// Setp and stage data for write to JSON file
-	$file = "data.json";
-	$json = json_decode(file_get_contents($file), true);
-	$json = array("name" => $name, "message" => $message);
+	// Get current JSON data
+	$file = file_get_contents('data.json');
+	$data = json_decode($file);
 
-	// Append data to JSON file
-	$write = file_put_contents($file, json_encode($json), FILE_APPEND);
+	// Prevent memory leaks for large json.
+	unset($file);
+
+	// Insert data into JSON data
+	$data[] = array('name' => $name, 'message' => $message);
+
+	// Re save the file
+	$write = file_put_contents('data.json',json_encode($data));
+
+	// Release memory
+	unset($data);
 
 	// Error handle
 	if($write === false) {

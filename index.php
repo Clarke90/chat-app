@@ -9,16 +9,21 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
-
 </head>
+
 <body>
-	<!-- Content wrapper for pushing footer -->
 	<div class="wrapper">
-		<form method="POST">
-			<input id="name" name="name" type="text" placeholder="Username"/><br>
-			<textarea id="message" name="message" type="text" rows="8" cols="40"></textarea><br>
-			<input type="submit" name="submit" value="Save Data"><br>
-		</form>
+		<header>
+			<h1>Chat Room</h1>
+		</header>
+		<!-- Content wrapper for pushing footer -->
+		<main>
+			<form method="POST">
+				<input id="name" name="name" type="text" placeholder="Username"/><br>
+				<textarea id="message" name="message" type="text" rows="8" cols="40"></textarea><br>
+				<input type="submit" name="submit" value="Save Data"><br>
+			</form>
+		</main>
 
 		<div class="push"></div>
 	</div>
@@ -36,6 +41,10 @@
 	<!--
 	Project refrences
 	http://stackoverflow.com/questions/19381111/how-to-encode-json-in-php-via-jquery-ajax-post-data
+
+	// Saving data to file via php
+	http://stackoverflow.com/questions/15149331/how-to-add-to-json-array-in-json-file-with-php
 	-->
 </body>
+
 </html>
