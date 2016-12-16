@@ -53,15 +53,21 @@ function checkJSON() {
 }
 
 function displayChat(obj, current) {
+
+	console.log("chat");
 	// If chat logs have been loaded then only load new ones
 	for (var i = previous; i < current; i++) {
 		console.log(obj[i].name)
 		console.log(obj[i].message)
 
 		// Append chat logs to view div#chatroom
+		var log = $("<div class='row'></div>")
+		var nameElement = $("<p class='col-xs-3'></p>").text(obj[i].name)
+		var messageElement = $("<p class='col-xs-9'></p>").text(obj[i].message)
+
+		log.append(nameElement, messageElement)
+		$("#chatroom").append(log)
 	}
 	// Update global variable so only new posts load when the user is on the page
 	previous = current
-
-
 }
