@@ -53,24 +53,12 @@ function checkJSON() {
 }
 
 function displayChat(obj, current) {
-
 	// If chat logs have been loaded then only load new ones
-	if (previous > 0) {
-		for (var i = previous; i < current; i++) {
-			console.log(obj[i].name)
-			console.log(obj[i].message)
-		}
-		previous = current
-
-		// Append new chat logs to existing
-
-	// If first load or no data was loaded then display all chat logs in JSON
-	} else {
-		for (var i = 0; i < current; i++) {
-			console.log(obj[i].name)
-			console.log(obj[i].message)
-		}
-		previous = current
-		console.log(previous)
+	for (var i = previous; i < current; i++) {
+		console.log(obj[i].name)
+		console.log(obj[i].message)
 	}
+	previous = current
+
+	// Append new chat logs to view div#chatroom
 }
