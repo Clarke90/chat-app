@@ -18,6 +18,9 @@
 		</header>
 		<!-- Content wrapper for pushing footer -->
 		<main>
+			<div id="chatroom">
+				
+			</div>
 			<form method="POST">
 				<input id="name" name="name" type="text" placeholder="Username"/><br>
 				<textarea id="message" name="message" type="text" rows="8" cols="40"></textarea><br>
