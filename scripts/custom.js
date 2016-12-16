@@ -57,8 +57,11 @@ function displayChat(obj, current) {
 	for (var i = previous; i < current; i++) {
 		console.log(obj[i].name)
 		console.log(obj[i].message)
+
+		// Append chat logs to view div#chatroom
 	}
+	// Update global variable so only new posts load when the user is on the page
 	previous = current
 
-	// Append new chat logs to view div#chatroom
+
 }
