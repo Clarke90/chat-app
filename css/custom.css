@@ -81,7 +81,13 @@ main {
 	display: flex;
 	flex: 1 1 auto;
 }
-
+.col-xs-3 {
+    width: 10%;
+    background-color: rgba(30, 144, 255, 0.5);
+    width: 14%;
+    padding: 2px 2px 2px 20px;
+    color: #eee;
+}
 div#chatroom {
 	width: 100%;
 	max-height: 400px;
@@ -124,21 +130,22 @@ form {
     margin-left: 5%;
 }
 .textbox {
-    background-color:#d6d6d6;
+    background-color:#304B60;
     padding-top: 2%;
 		padding-bottom: 2%;
 }
 #chatroom{
 	background-color: #eeeeee;
 }
-.col-xs-3 {
-    width: 10%;
-    background-color: rgba(30, 144, 255, 0.5);
-    width: 14%;
-    padding: 2px 2px 2px 20px;
-    color: #eee;
-}
 img#logo{
 	width: 80px;
 	position: absolute;
+}
+footer{
+	background-color: #222;
+	height: 50px;
+}
+footer.sticky-footer>small{
+	padding-top: 1%;
+	color: #eee;
 }

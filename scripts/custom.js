@@ -36,6 +36,7 @@ function postData() {
 		},
 		success: function() {
 			console.log('Written to file')
+			$("#message").val('');
 		}
 	})
 }

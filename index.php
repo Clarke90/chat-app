@@ -23,29 +23,27 @@
 		</header>
 		<!-- Content wrapper for pushing footer -->
 		<main>
-<div class="col-sm-12">
-		<div id="chatroom"></div>
-</divs>
-
-<div class="col-sm-12 textbox">
-			<form method="POST">
-				<input id="name" name="name" type="text" placeholder="Username"/><br>
-				<textarea id="message" name="message" type="text" rows="8" cols="80"></textarea><br>
-				<input type="submit" name="submit" value="Save Data"><br>
-			</form>
-		</main>
-</div>
-		<div class="push"></div>
+			<div class="col-sm-12">
+					<div id="chatroom"></div>
+			</divs>
+				<div class="col-sm-12 textbox">
+							<form method="POST">
+								<input id="name" name="name" type="text" placeholder="Username"/><br>
+								<textarea id="message" name="message" type="text" rows="6" cols="80"></textarea><br>
+								<input type="submit" name="submit" value="Save Data"><br>
+							</form>
+				</div>
+	<div class="col-sm-12">
+		<footer class="sticky-footer">
+				<small class="pull-right">&copy;<?php echo date("Y"); ?> Chad Clarke & Mat Seifried</small>
+		</footer>
 	</div>
-</div>
-<!-- main footer -->
-	<footer class="sticky-footer flex-row y-center">
-		<div class="container">
-			<small class="pull-right">&copy;<?php echo date("Y"); ?> Chad Clarke & Mat Seifried</small>
-		</div>
-	</footer>
+		</main>
 
-	<script src="scripts/jquery-3.1.1.min.js"></script>
+</div> <!-- wrapper -->
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="scripts/custom.js"></script>
 	<!--
@@ -57,8 +55,18 @@
 	-->
 
 <script type="text/javascript">
-$(window).load(function() {
-$("html, body").animate({ scrollBottom: $(document).height() }, 5000);
+$( document ).ready(function() {
+    console.log( "ready!" );
+		setTimeout(function(){
+			// remove the header after 2 seconds
+			   $("header").remove();
+			//scroll to bottom of page
+				   $('html, body').scrollTop( $(document).height() - $(window).height() );
+		},2000);
+
+
+
+
 });
 </script>
 
